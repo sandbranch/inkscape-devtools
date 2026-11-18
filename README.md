@@ -27,6 +27,13 @@ Helpers for our Inkscape work, mainly for the Inkscape Flatpak
   - **Formula (typst)**: with typst 0.15 every glyph landed on the same
     spot (branch `typst-formula-glyphs`).
 
+- `smoke/inkstitch/run.sh`: checks an installed Ink/Stitch release
+  (native Inkscape): exports mm, px and scaled test drawings to DST and
+  PES and reads them back with pystitch (stitch counts, 60 x 50 mm
+  extents), runs the Stitch Plan Preview including the 600 dpi raster
+  mode, and with `--gui` screenshots the simulator and params dialogs
+  under Xvfb.
+
 Facts about the Inkscape Flatpak these rely on (checked 2026-11-18):
 filesystems=host, but a private `/tmp`; no USB or serial devices; PATH
 inside is `/app/bin:/usr/bin`; a static binary like typst runs inside.
