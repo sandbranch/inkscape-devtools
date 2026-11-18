@@ -4,5 +4,5 @@
 # Used through links named after the program; see inkscape-devtools.
 prog=$(basename "$0")
 exec /run/host/usr/lib64/ld-linux-x86-64.so.2 \
-    --library-path /run/host/usr/lib/x86_64-linux-gnu:/run/host/lib/x86_64-linux-gnu \
+    --library-path /run/host/usr/lib/x86_64-linux-gnu:/run/host/lib/x86_64-linux-gnu:/run/host/usr/lib \
     "/run/host/usr/bin/$prog" "$@"
