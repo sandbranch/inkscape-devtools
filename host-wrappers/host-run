@@ -1,0 +1,8 @@
+#!/bin/sh
+# Run a program of the host system inside the Inkscape Flatpak, with the
+# host's own loader and libraries (the host's /usr is at /run/host/usr).
+# Used through links named after the program; see inkscape-devtools.
+prog=$(basename "$0")
+exec /run/host/usr/lib64/ld-linux-x86-64.so.2 \
+    --library-path /run/host/usr/lib/x86_64-linux-gnu:/run/host/lib/x86_64-linux-gnu \
+    "/run/host/usr/bin/$prog" "$@"
