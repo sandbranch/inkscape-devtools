@@ -41,7 +41,7 @@ echo "stitch plan preview: ok in mm, px, scaled"
 # dbus-run-session's helpers write to the inherited stdout, so keep only the SVG.
 dbus-run-session -- "$bin" --extension=stitch_plan_preview --render-mode=realistic-600 mm.svg \
     >r600.raw 2>r600.err
-sed -n '/^<svg/,$p' r600.raw >r600.svg
+sed -n '/^<\(svg\|!--\)/,$p' r600.raw >r600.svg
 grep -q 'data:image/png;base64' r600.svg || { echo "FAIL realistic-600 preview"; cat r600.err; exit 1; }
 echo "realistic 600 dpi preview: ok"
 
